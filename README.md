@@ -22,9 +22,9 @@ Swipe back pop animation, not just trigger screen edge!
 
 ## Requirements
 
-	- iOS 7
-	- ARC
+- iOS 7
+- ARC
 
 # Refrence
 	
-	- [nonamelive](https://github.com/nonamelive/SloppySwiper)
+- [nonamelive](https://github.com/nonamelive/SloppySwiper)
