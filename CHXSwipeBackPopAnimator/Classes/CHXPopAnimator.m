@@ -8,26 +8,18 @@
 
 #import "CHXPopAnimator.h"
 
-NSString * const kShadowOpacityKey = @"shadowOpacity";
-CGFloat const kShadowOpacityStart = 0.2f;
-CGFloat const kShadowOpacityEnd = 0.05f;
-
-NSString * const kOpacityKey = @"opacity";
-CGFloat const kOpacityStart = 0.2f;
-CGFloat const kOpacityEnd = 0.0f;
-
 #pragma mark -
 
 @implementation UIView (CHXLeftEdgeShadow)
 
-- (void)addLeftEdgeShadowShadow
+- (void)addLeftEdgeShadow
 {
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.bounds];
     self.layer.shadowPath = path.CGPath;
     self.layer.shadowOffset = CGSizeMake(-2.0f, 0.0f);
     self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     self.layer.shadowRadius = 2.0f;
-    self.layer.shadowOpacity = kShadowOpacityStart;
+    self.layer.shadowOpacity = 0.2f;
 }
 
 @end
@@ -43,80 +35,67 @@ CGFloat const kOpacityEnd = 0.0f;
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning> )transitionContext
 {
+    // Get viewcontrollers and tabBar
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    [fromViewController.view addLeftEdgeShadowShadow];
-    [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
-    
-    // Add mask layer to toViewController's view
-    CALayer *maskLayer = [CALayer layer];
-    maskLayer.frame = toViewController.view.bounds;
-    maskLayer.backgroundColor = [UIColor blackColor].CGColor;
-    maskLayer.opacity = kOpacityStart;
-    [toViewController.view.layer addSublayer:maskLayer];
-    
-    // Fix hidesBottomBarWhenPushed not animated properly
     UITabBarController *tabBarController = toViewController.tabBarController;
-    UINavigationController *navController = toViewController.navigationController;
     UITabBar *tabBar = tabBarController.tabBar;
-    BOOL shouldAddTabBarBackToTabBarController = NO;
-    
-    BOOL tabBarControllerContainsToViewController = [tabBarController.viewControllers containsObject:toViewController];
-    BOOL tabBarControllerContainsNavController = [tabBarController.viewControllers containsObject:navController];
-    BOOL isToViewControllerFirstInNavController = [navController.viewControllers firstObject] == toViewController;
-    if (tabBar && (tabBarControllerContainsToViewController || (isToViewControllerFirstInNavController && tabBarControllerContainsNavController))) {
+
+    // If fromViewController's tabbar did not appear,then needAdjustTabbarPosition = YES
+    // which means the tabBar will show up follow the toViewController
+    BOOL needAdjustTabBarPosition = !tabBar.isHidden && tabBar.frame.origin.x != 0;
+    if (needAdjustTabBarPosition) {
         [tabBar.layer removeAllAnimations];
         
-        CGRect tabBarRect = tabBar.frame;
-        tabBarRect.origin.x = toViewController.view.bounds.origin.x;
-        tabBar.frame = tabBarRect;
+        CGPoint tabBarCenter = tabBar.center;
+        tabBarCenter.x = toViewController.view.center.x;
+        tabBar.center = tabBarCenter;
         
         [toViewController.view addSubview:tabBar];
-        shouldAddTabBarBackToTabBarController = YES;
     }
     
-    CGFloat width = CGRectGetWidth(fromViewController.view.frame);
-    CGPoint fromViewCenter = fromViewController.view.center;
-    CGPoint toViewCenter = toViewController.view.center;
-    toViewCenter.x = width * 0.2f;
-    toViewController.view.center = toViewCenter;
-    fromViewCenter.x = width + width / 2.0f;
-    toViewCenter.x = width / 2.0f;
+    // Add left edge shdow
+    [fromViewController.view addLeftEdgeShadow];
     
+    // Add target view to the container, and move it to back.
+    UIView *containerView = [transitionContext containerView];
+    [containerView insertSubview:toViewController.view belowSubview:fromViewController.view];
+    
+    // Add maskView to toViewController's view
+    UIView *maskView = [[UIView alloc] initWithFrame:toViewController.view.bounds];
+    maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+    [toViewController.view addSubview:maskView];
+    
+    // Set toViewController animation init positon
+    CGFloat transformX = -CGRectGetWidth(toViewController.view.bounds) * 0.3f;
+    toViewController.view.transform = CGAffineTransformMakeTranslation(transformX, 0);
+    
+    // Run the animation
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
-                          delay:0.0
-                        options:UIViewAnimationOptionCurveLinear animations: ^{
-        fromViewController.view.center = fromViewCenter;
-        toViewController.view.center = toViewCenter;
-    } completion: ^(BOOL finished) {
-        if (shouldAddTabBarBackToTabBarController) {
-            [tabBarController.view addSubview:tabBar];
+                          delay:0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+        toViewController.view.transform = CGAffineTransformIdentity;
+        fromViewController.view.transform = CGAffineTransformMakeTranslation(CGRectGetWidth(toViewController.view.bounds), 0);
+        maskView.alpha = 0;
+    } completion:^(BOOL finished) {
+        if (needAdjustTabBarPosition) {
+            [tabBar removeFromSuperview];
             
-            CGRect tabBarRect = tabBar.frame;
-            tabBarRect.origin.x = tabBarController.view.bounds.origin.x;
-            tabBar.frame = tabBarRect;
+            CGPoint tabBarCenter = tabBar.center;
+            tabBarCenter.x = toViewController.view.center.x;
+            tabBar.center = tabBarCenter;
+            
+            [tabBarController.view addSubview:tabBar];
         }
         
-        [maskLayer removeFromSuperlayer];
+        // If cancel animation, recover the toViewController's position
+        toViewController.view.transform = CGAffineTransformIdentity;
+        fromViewController.view.transform = CGAffineTransformIdentity;
+        [maskView removeFromSuperview];
+        
         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
     }];
-    
-    [CATransaction begin];
-    [CATransaction setAnimationDuration:[self transitionDuration:transitionContext]];
-    
-    CABasicAnimation *shadowOpacityAnimation = [CABasicAnimation animationWithKeyPath:kShadowOpacityKey];
-    shadowOpacityAnimation.fromValue = [NSNumber numberWithFloat:kShadowOpacityStart];
-    [fromViewController.view.layer addAnimation:shadowOpacityAnimation forKey:kShadowOpacityKey];
-    fromViewController.view.layer.shadowOpacity = kShadowOpacityEnd;
-    
-    CABasicAnimation *opacityAnimation = [CABasicAnimation animationWithKeyPath:kOpacityKey];
-    opacityAnimation.fromValue = [NSNumber numberWithFloat:kOpacityStart];
-    opacityAnimation.duration = [self transitionDuration:transitionContext];
-    [maskLayer addAnimation:opacityAnimation forKey:kOpacityKey];
-    maskLayer.opacity = kOpacityEnd;
-    
-    [CATransaction commit];
 }
 
 @end

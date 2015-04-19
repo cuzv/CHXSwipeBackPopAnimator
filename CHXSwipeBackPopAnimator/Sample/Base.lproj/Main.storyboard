@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--Has Tabbar-->
+        <!--Page one-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                             <outletCollection property="gestureRecognizers" destination="Cx9-cJ-qM7" appends="YES" id="ZV4-di-E3N"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Has Tabbar" id="9lY-3N-gki"/>
+                    <navigationItem key="navigationItem" title="Page one" id="9lY-3N-gki"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Cx9-cJ-qM7">
@@ -33,10 +33,10 @@
             </objects>
             <point key="canvasLocation" x="2134" y="337"/>
         </scene>
-        <!--Without Tabar-->
+        <!--Second page-->
         <scene sceneID="5RL-Rd-Ou1">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="luf-jr-Tth" sceneMemberID="viewController">
+                <viewController id="luf-jr-Tth" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="25X-Rz-piI"/>
                         <viewControllerLayoutGuide type="bottom" id="2Cm-wO-EmI"/>
@@ -45,13 +45,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.87054031191297043" blue="0.58885972274177745" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="KGK-gw-jhG" appends="YES" id="fHB-IR-5wJ"/>
+                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Without Tabar" id="5vs-Sc-M2m"/>
+                    <navigationItem key="navigationItem" title="Second page" id="5vs-Sc-M2m"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcF-86-xTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KGK-gw-jhG">
+                    <connections>
+                        <segue destination="sJJ-2G-3qA" kind="show" id="Oq2-fT-mkS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2827" y="337"/>
+        </scene>
+        <!--The end-->
+        <scene sceneID="IjI-9e-s2c">
+            <objects>
+                <viewController id="sJJ-2G-3qA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jvf-pq-Cxj"/>
+                        <viewControllerLayoutGuide type="bottom" id="bMH-BP-G6e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qm0-i3-igr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.53852041323461886" blue="0.83155461774635664" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="The end" id="L2e-8G-0nV"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cv7-fE-Zag" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3493" y="337"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Dr4-Nk-EeV">

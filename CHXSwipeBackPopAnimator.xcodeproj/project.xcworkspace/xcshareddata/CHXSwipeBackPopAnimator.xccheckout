@@ -10,14 +10,14 @@
 	<string>CHXSwipeBackPopAnimator</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>456DC9384AF188337DFD7C82D8921EF0CE3E3DC9</key>
+		<key>D535D31EB921C57B8301B0BA272E41E55AC7E767</key>
 		<string>https://github.com/atcuan/CHXSwipeBackPopAnimator</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CHXSwipeBackPopAnimator.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>456DC9384AF188337DFD7C82D8921EF0CE3E3DC9</key>
+		<key>D535D31EB921C57B8301B0BA272E41E55AC7E767</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>456DC9384AF188337DFD7C82D8921EF0CE3E3DC9</string>
+	<string>D535D31EB921C57B8301B0BA272E41E55AC7E767</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>456DC9384AF188337DFD7C82D8921EF0CE3E3DC9</string>
+			<string>D535D31EB921C57B8301B0BA272E41E55AC7E767</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CHXSwipeBackPopAnimator</string>
 		</dict>

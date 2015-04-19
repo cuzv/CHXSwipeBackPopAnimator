@@ -3,7 +3,9 @@ Swipe back pop animation, not just trigger screen edge!
 
 # How does it look like?
 
-![(1)](https://github.com/showmecode/CHXSwipeBackPopAnimator/blob/master/images/1.gif)
+[![Particular](images/1.gif)](images/1.gif)
+[![Hide bottom bar](images/2.gif)](images/2.gif)
+[![No hide bottom bar](images/3.gif)](images/3.gif)
 
 ## How to use
 
@@ -27,4 +29,4 @@ Swipe back pop animation, not just trigger screen edge!
 
 # Refrence
 	
-- [nonamelive](https://github.com/nonamelive/SloppySwiper)
+- [nonamelive](https://github.com/nonamelive/SloppySwiper/blob/master/Classes/SSWAnimator.m#L67)
