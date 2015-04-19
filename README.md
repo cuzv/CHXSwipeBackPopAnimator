@@ -3,9 +3,12 @@ Swipe back pop animation, not just trigger screen edge!
 
 # How does it look like?
 
-[![Particular](images/1.gif)](images/1.gif)
-[![Hide bottom bar](images/2.gif)](images/2.gif)
-[![No hide bottom bar](images/3.gif)](images/3.gif)
+<p align="left">
+	<img src="./images/1.gif" width=24%">&nbsp;
+	<img src="./images/2.gif" width=24%">&nbsp;
+	<img src="./images/3.gif" width=24%">&nbsp;
+</p>
+
 
 ## How to use
 
