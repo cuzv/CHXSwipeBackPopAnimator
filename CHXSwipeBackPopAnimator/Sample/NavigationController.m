@@ -25,10 +25,10 @@
 //
 
 #import "NavigationController.h"
-#import "CHXPopAnimatorPayload.h"
+#import "CHXPopAnimatorCarrier.h"
 
 @interface NavigationController ()
-@property (nonatomic, strong) CHXPopAnimatorPayload *payload;
+@property (nonatomic, strong) CHXPopAnimatorCarrier *carrier;
 @end
 
 @implementation NavigationController
@@ -36,10 +36,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-//    self.navigationBar.translucent = NO;
+    self.navigationBar.translucent = NO;
     
-    self.payload = [[CHXPopAnimatorPayload alloc] initWithNavigationController:self];
-    self.delegate = self.payload;
+    self.carrier = [[CHXPopAnimatorCarrier alloc] initWithNavigationController:self];
+    self.delegate = self.carrier;
 }
 
 

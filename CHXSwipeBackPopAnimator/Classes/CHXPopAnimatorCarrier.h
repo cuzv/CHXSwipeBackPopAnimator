@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  CHXPopAnimatorPayload.h
 //  CHXSwipeBackPopAnimator
 //
 //  Created by Moch Xiao on 4/18/15.
@@ -24,18 +24,11 @@
 //  THE SOFTWARE.
 //
 
-#import "ViewController.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface ViewController ()
+@interface CHXPopAnimatorCarrier : NSObject <UINavigationControllerDelegate>
 
-@end
-
-@implementation ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
-}
-
+- (instancetype)initWithNavigationController:(UINavigationController *)navigationController;
 
 @end

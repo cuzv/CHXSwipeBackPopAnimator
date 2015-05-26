@@ -24,10 +24,10 @@
 //  THE SOFTWARE.
 //
 
-#import "CHXPopAnimatorPayload.h"
+#import "CHXPopAnimatorCarrier.h"
 #import "CHXPopAnimator.h"
 
-@interface CHXPopAnimatorPayload ()
+@interface CHXPopAnimatorCarrier ()
 @property (nonatomic, weak) UINavigationController *navigationController;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic, strong) CHXPopAnimator *popAnimator;
@@ -35,7 +35,7 @@
 @property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactiveTransition;
 @end
 
-@implementation CHXPopAnimatorPayload
+@implementation CHXPopAnimatorCarrier
 
 - (void)dealloc {
     [_panGestureRecognizer removeTarget:self action:@selector(handlePan:)];

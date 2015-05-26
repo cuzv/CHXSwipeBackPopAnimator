@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ViewController.m
 //  CHXSwipeBackPopAnimator
 //
 //  Created by Moch Xiao on 4/18/15.
@@ -24,10 +24,17 @@
 //  THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "PageOneViewController.h"
 
-@interface ViewController : UIViewController
-
+@interface PageOneViewController ()
 
 @end
 
+@implementation PageOneViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
+
+@end

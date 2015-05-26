@@ -9,14 +9,16 @@
 /* Begin PBXBuildFile section */
 		4644A07A1AE2910700D3452F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A0791AE2910700D3452F /* main.m */; };
 		4644A07D1AE2910700D3452F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A07C1AE2910700D3452F /* AppDelegate.m */; };
-		4644A0801AE2910700D3452F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A07F1AE2910700D3452F /* ViewController.m */; };
+		4644A0801AE2910700D3452F /* PageOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A07F1AE2910700D3452F /* PageOneViewController.m */; };
 		4644A0831AE2910700D3452F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4644A0811AE2910700D3452F /* Main.storyboard */; };
 		4644A0851AE2910700D3452F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4644A0841AE2910700D3452F /* Images.xcassets */; };
 		4644A0881AE2910700D3452F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4644A0861AE2910700D3452F /* LaunchScreen.xib */; };
 		4644A0941AE2910700D3452F /* CHXSwipeBackPopAnimatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A0931AE2910700D3452F /* CHXSwipeBackPopAnimatorTests.m */; };
 		4644A0A11AE291BE00D3452F /* CHXPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A0A01AE291BE00D3452F /* CHXPopAnimator.m */; };
-		4644A0A41AE2922600D3452F /* CHXPopAnimatorPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A0A31AE2922600D3452F /* CHXPopAnimatorPayload.m */; };
+		4644A0A41AE2922600D3452F /* CHXPopAnimatorCarrier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A0A31AE2922600D3452F /* CHXPopAnimatorCarrier.m */; };
 		4644A0A71AE29CF100D3452F /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A0A61AE29CF100D3452F /* NavigationController.m */; };
+		4644EF501B14B79F008378D7 /* PageTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644EF4F1B14B79F008378D7 /* PageTwoViewController.m */; };
+		4644EF531B14B7C2008378D7 /* PageThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644EF521B14B7C2008378D7 /* PageThreeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +37,8 @@
 		4644A0791AE2910700D3452F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4644A07B1AE2910700D3452F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4644A07C1AE2910700D3452F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4644A07E1AE2910700D3452F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4644A07F1AE2910700D3452F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4644A07E1AE2910700D3452F /* PageOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageOneViewController.h; sourceTree = "<group>"; };
+		4644A07F1AE2910700D3452F /* PageOneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageOneViewController.m; sourceTree = "<group>"; };
 		4644A0821AE2910700D3452F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4644A0841AE2910700D3452F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4644A0871AE2910700D3452F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -45,10 +47,14 @@
 		4644A0931AE2910700D3452F /* CHXSwipeBackPopAnimatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHXSwipeBackPopAnimatorTests.m; sourceTree = "<group>"; };
 		4644A09F1AE291BE00D3452F /* CHXPopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHXPopAnimator.h; sourceTree = "<group>"; };
 		4644A0A01AE291BE00D3452F /* CHXPopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHXPopAnimator.m; sourceTree = "<group>"; };
-		4644A0A21AE2922600D3452F /* CHXPopAnimatorPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHXPopAnimatorPayload.h; sourceTree = "<group>"; };
-		4644A0A31AE2922600D3452F /* CHXPopAnimatorPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHXPopAnimatorPayload.m; sourceTree = "<group>"; };
+		4644A0A21AE2922600D3452F /* CHXPopAnimatorCarrier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHXPopAnimatorCarrier.h; sourceTree = "<group>"; };
+		4644A0A31AE2922600D3452F /* CHXPopAnimatorCarrier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHXPopAnimatorCarrier.m; sourceTree = "<group>"; };
 		4644A0A51AE29CF100D3452F /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		4644A0A61AE29CF100D3452F /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		4644EF4E1B14B79F008378D7 /* PageTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoViewController.h; sourceTree = "<group>"; };
+		4644EF4F1B14B79F008378D7 /* PageTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoViewController.m; sourceTree = "<group>"; };
+		4644EF511B14B7C2008378D7 /* PageThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageThreeViewController.h; sourceTree = "<group>"; };
+		4644EF521B14B7C2008378D7 /* PageThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageThreeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +133,8 @@
 			children = (
 				4644A09F1AE291BE00D3452F /* CHXPopAnimator.h */,
 				4644A0A01AE291BE00D3452F /* CHXPopAnimator.m */,
-				4644A0A21AE2922600D3452F /* CHXPopAnimatorPayload.h */,
-				4644A0A31AE2922600D3452F /* CHXPopAnimatorPayload.m */,
+				4644A0A21AE2922600D3452F /* CHXPopAnimatorCarrier.h */,
+				4644A0A31AE2922600D3452F /* CHXPopAnimatorCarrier.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -140,8 +146,12 @@
 				4644A07C1AE2910700D3452F /* AppDelegate.m */,
 				4644A0A51AE29CF100D3452F /* NavigationController.h */,
 				4644A0A61AE29CF100D3452F /* NavigationController.m */,
-				4644A07E1AE2910700D3452F /* ViewController.h */,
-				4644A07F1AE2910700D3452F /* ViewController.m */,
+				4644A07E1AE2910700D3452F /* PageOneViewController.h */,
+				4644A07F1AE2910700D3452F /* PageOneViewController.m */,
+				4644EF4E1B14B79F008378D7 /* PageTwoViewController.h */,
+				4644EF4F1B14B79F008378D7 /* PageTwoViewController.m */,
+				4644EF511B14B7C2008378D7 /* PageThreeViewController.h */,
+				4644EF521B14B7C2008378D7 /* PageThreeViewController.m */,
 				4644A0811AE2910700D3452F /* Main.storyboard */,
 				4644A0841AE2910700D3452F /* Images.xcassets */,
 				4644A0861AE2910700D3452F /* LaunchScreen.xib */,
@@ -250,12 +260,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4644EF531B14B7C2008378D7 /* PageThreeViewController.m in Sources */,
 				4644A0A11AE291BE00D3452F /* CHXPopAnimator.m in Sources */,
-				4644A0801AE2910700D3452F /* ViewController.m in Sources */,
-				4644A0A41AE2922600D3452F /* CHXPopAnimatorPayload.m in Sources */,
+				4644A0801AE2910700D3452F /* PageOneViewController.m in Sources */,
+				4644A0A41AE2922600D3452F /* CHXPopAnimatorCarrier.m in Sources */,
 				4644A0A71AE29CF100D3452F /* NavigationController.m in Sources */,
 				4644A07D1AE2910700D3452F /* AppDelegate.m in Sources */,
 				4644A07A1AE2910700D3452F /* main.m in Sources */,
+				4644EF501B14B79F008378D7 /* PageTwoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

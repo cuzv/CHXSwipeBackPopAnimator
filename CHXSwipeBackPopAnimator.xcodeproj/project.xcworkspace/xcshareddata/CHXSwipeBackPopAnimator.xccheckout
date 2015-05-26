@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>9EE2F5D8-9E0C-47B0-A674-7106F11822A0</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>CHXSwipeBackPopAnimator</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D535D31EB921C57B8301B0BA272E41E55AC7E767</key>
 		<string>https://github.com/showmecode/CHXSwipeBackPopAnimator</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CHXSwipeBackPopAnimator.xcodeproj/project.xcworkspace</string>
+	<string>CHXSwipeBackPopAnimator.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D535D31EB921C57B8301B0BA272E41E55AC7E767</key>
