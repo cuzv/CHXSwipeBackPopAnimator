@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CHXSwipeBackPopAnimator"
-  s.version      = "1.1"
+  s.version      = "1.2"
   s.summary      = "Swipe back pop animation, not just trigger screen edge!"
   s.homepage     = "https://github.com/showmecode/CHXSwipeBackPopAnimator"
   s.license      = "MIT"
