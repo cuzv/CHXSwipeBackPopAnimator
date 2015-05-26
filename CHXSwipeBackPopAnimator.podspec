@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author             = { "Moch" => "atcuan@gmail.com" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/showmecode/CHXSwipeBackPopAnimator.git",
-:tag => "1.1" }
+:tag => s.version.to_s }
   s.requires_arc = true
   s.source_files  = "CHXSwipeBackPopAnimator/Classes/*"
   s.frameworks = 'Foundation', 'UIKit'

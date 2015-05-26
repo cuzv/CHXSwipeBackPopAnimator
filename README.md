@@ -32,4 +32,5 @@ Swipe back pop animation, not just trigger screen edge!
 
 # Refrence
 	
+- [onevcat's blog](http://onevcat.com/2013/10/vc-transition-in-ios7/)
 - [nonamelive](https://github.com/nonamelive/SloppySwiper/blob/master/Classes/SSWAnimator.m#L67)

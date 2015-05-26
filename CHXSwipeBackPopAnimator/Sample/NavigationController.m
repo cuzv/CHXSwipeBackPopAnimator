@@ -36,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+//    self.navigationBar.translucent = NO;
     
     self.payload = [[CHXPopAnimatorPayload alloc] initWithNavigationController:self];
     self.delegate = self.payload;

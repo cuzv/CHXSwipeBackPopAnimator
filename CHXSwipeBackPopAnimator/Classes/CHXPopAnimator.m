@@ -58,7 +58,7 @@
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UITabBarController *tabBarController = toViewController.tabBarController;
     UITabBar *tabBar = tabBarController.tabBar;
-
+    
     // If fromViewController's tabbar did not appear,then needAdjustTabbarPosition = YES
     // which means the tabBar will show up follow the toViewController
     BOOL needAdjustTabBarPosition = !tabBar.isHidden && tabBar.frame.origin.x != 0;
@@ -67,8 +67,12 @@
         
         CGPoint tabBarCenter = tabBar.center;
         tabBarCenter.x = toViewController.view.center.x;
+        // If the NavigationBar is not translucent will cause toViewController.view.y = -64 (In general)
+        if (!fromViewController.navigationController.navigationBar.isTranslucent) {
+            tabBarCenter.y -= CGRectGetHeight([UIApplication sharedApplication].statusBarFrame) +
+                              CGRectGetHeight(fromViewController.navigationController.navigationBar.bounds);
+        }
         tabBar.center = tabBarCenter;
-        
         [toViewController.view addSubview:tabBar];
     }
     
@@ -91,7 +95,7 @@
     // Run the animation
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                           delay:0
-                        options:UIViewAnimationOptionCurveLinear
+                        options:UIViewAnimationOptionTransitionNone
                      animations:^{
         toViewController.view.transform = CGAffineTransformIdentity;
         fromViewController.view.transform = CGAffineTransformMakeTranslation(CGRectGetWidth(toViewController.view.bounds), 0);
@@ -102,8 +106,11 @@
             
             CGPoint tabBarCenter = tabBar.center;
             tabBarCenter.x = toViewController.view.center.x;
+            if (!toViewController.navigationController.navigationBar.isTranslucent) {
+                tabBarCenter.y += CGRectGetHeight([UIApplication sharedApplication].statusBarFrame) +
+                                  CGRectGetHeight(toViewController.navigationController.navigationBar.bounds);
+            }
             tabBar.center = tabBarCenter;
-            
             [tabBarController.view addSubview:tabBar];
         }
         
