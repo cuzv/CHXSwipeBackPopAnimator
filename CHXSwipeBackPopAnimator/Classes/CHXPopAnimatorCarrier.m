@@ -27,7 +27,7 @@
 #import "CHXPopAnimatorCarrier.h"
 #import "CHXPopAnimator.h"
 
-@interface CHXPopAnimatorCarrier ()
+@interface CHXPopAnimatorCarrier () <UIGestureRecognizerDelegate>
 @property (nonatomic, weak) UINavigationController *navigationController;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic, strong) CHXPopAnimator *popAnimator;
@@ -56,6 +56,7 @@
 - (void)commitInit {
     _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     _panGestureRecognizer.maximumNumberOfTouches = 1;
+    _panGestureRecognizer.delegate = self;
     [_navigationController.view addGestureRecognizer:_panGestureRecognizer];
     
     _popAnimator = [CHXPopAnimator new];
@@ -88,6 +89,10 @@
         
         self.interactiveTransition = nil;
     }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
 }
 
 #pragma mark - UINavigationControllerDelegate
