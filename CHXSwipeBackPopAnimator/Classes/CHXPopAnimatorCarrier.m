@@ -69,8 +69,12 @@
     if (state == UIGestureRecognizerStateBegan) {
         CGFloat velocityX = [sender velocityInView:navigationView].x;
         if ([self.navigationController.viewControllers count] > 1 && !self.animating && velocityX > 0) {
-            self.interactiveTransition = [UIPercentDrivenInteractiveTransition new];
-            [self.navigationController popViewControllerAnimated:YES];
+            CGFloat velocityY = [sender velocityInView:navigationView].y;
+            CGPoint location = [sender locationInView:navigationView];
+            if (0 == velocityY || location.x <= 20) {
+                self.interactiveTransition = [UIPercentDrivenInteractiveTransition new];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
         }
     } else if (state == UIGestureRecognizerStateChanged) {
         CGFloat translationX = [sender translationInView:navigationView].x;
@@ -102,8 +106,7 @@
 - (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                    animationControllerForOperation:(UINavigationControllerOperation)operation
                                                 fromViewController:(UIViewController *)fromVC
-                                                  toViewController:(UIViewController *)toVC
-{
+                                                  toViewController:(UIViewController *)toVC {
     if (operation == UINavigationControllerOperationPop) {
         return self.popAnimator;
     }
@@ -112,22 +115,19 @@
 }
 
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
-                         interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
-{
+                         interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
     return self.interactiveTransition;
 }
 
 - (void)navigationController:(UINavigationController *)navigationController
       willShowViewController:(UIViewController *)viewController
-                    animated:(BOOL)animated
-{
+                    animated:(BOOL)animated {
     self.animating = animated;
 }
 
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController
-                    animated:(BOOL)animated
-{
+                    animated:(BOOL)animated {
     self.animating = NO;
     
     if (navigationController.viewControllers.count <= 1) {
