@@ -71,7 +71,7 @@
         if ([self.navigationController.viewControllers count] > 1 && !self.animating && velocityX > 0) {
             CGFloat velocityY = [sender velocityInView:navigationView].y;
             CGPoint location = [sender locationInView:navigationView];
-            if (0 == velocityY || location.x <= 20) {
+            if (0 == velocityY || location.x <= 40) {
                 self.interactiveTransition = [UIPercentDrivenInteractiveTransition new];
                 [self.navigationController popViewControllerAnimated:YES];
             }
@@ -114,7 +114,7 @@
     return nil;
 }
 
-- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
                          interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
     return self.interactiveTransition;
 }
