@@ -17,12 +17,29 @@ Swipe back pop animation, not just trigger screen edge!
 - Edit you `UINavigationController` file
 	
 	```Objective-c
-	#import "CHXPopAnimatorPayload.h"
+	#import <CHXSwipeBackPopAnimator/CHXSwipeBackPopAnimator.h>
 	...
-	@property (nonatomic, strong) CHXPopAnimatorPayload *payload;
+	@property (nonatomic, strong) CHXPopAnimatorCarrier *carrier;
 	...
-	self.payload = [[CHXPopAnimatorPayload alloc] initWithNavigationController:self];
-    self.delegate = self.payload;
+	self.carrier = [[CHXPopAnimatorPayload alloc] initWithNavigationController:self];
+    self.delegate = self.carrier;
+	```
+	
+- Temporary	shield
+
+	```
+	- (void)viewWillAppear:(BOOL)animated {
+	    [super viewWillAppear:animated];
+    
+    	[self.navigationController chx_disableInteractivePopGestureRecognizerButPreventScreenEdge:NO];
+}
+
+	- (void)viewWillDisappear:(BOOL)animated {
+	    [super viewWillDisappear:animated];
+	    
+	    [self.navigationController chx_enableInteractivePopGestureRecognizer];
+	}
+
 	```
 
 ## Requirements
