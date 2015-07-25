@@ -21,7 +21,7 @@ Swipe back pop animation, not just trigger screen edge!
 	...
 	@property (nonatomic, strong) CHXPopAnimatorCarrier *carrier;
 	...
-	self.carrier = [[CHXPopAnimatorPayload alloc] initWithNavigationController:self];
+	self.carrier = [[CHXPopAnimatorCarrier alloc] initWithNavigationController:self];
     self.delegate = self.carrier;
 	```
 	
