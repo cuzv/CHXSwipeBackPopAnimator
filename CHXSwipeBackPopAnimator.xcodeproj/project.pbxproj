@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4604A1681B63AC5700E99DE0 /* UINavigationController+CHXSwipeBackPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4604A1671B63AC5700E99DE0 /* UINavigationController+CHXSwipeBackPopAnimator.m */; };
 		4644A07A1AE2910700D3452F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A0791AE2910700D3452F /* main.m */; };
 		4644A07D1AE2910700D3452F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A07C1AE2910700D3452F /* AppDelegate.m */; };
 		4644A0801AE2910700D3452F /* PageOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4644A07F1AE2910700D3452F /* PageOneViewController.m */; };
@@ -32,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		460127531B63B44500BD756E /* UINavigationController+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Private.h"; sourceTree = "<group>"; };
+		460127541B63BB0900BD756E /* CHXSwipeBackPopAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHXSwipeBackPopAnimator.h; sourceTree = "<group>"; };
+		4604A1661B63AC5700E99DE0 /* UINavigationController+CHXSwipeBackPopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+CHXSwipeBackPopAnimator.h"; sourceTree = "<group>"; };
+		4604A1671B63AC5700E99DE0 /* UINavigationController+CHXSwipeBackPopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+CHXSwipeBackPopAnimator.m"; sourceTree = "<group>"; };
 		4644A0741AE2910700D3452F /* CHXSwipeBackPopAnimator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHXSwipeBackPopAnimator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4644A0781AE2910700D3452F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4644A0791AE2910700D3452F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,10 +136,14 @@
 		4644A09D1AE2914500D3452F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				460127541B63BB0900BD756E /* CHXSwipeBackPopAnimator.h */,
 				4644A09F1AE291BE00D3452F /* CHXPopAnimator.h */,
 				4644A0A01AE291BE00D3452F /* CHXPopAnimator.m */,
 				4644A0A21AE2922600D3452F /* CHXPopAnimatorCarrier.h */,
 				4644A0A31AE2922600D3452F /* CHXPopAnimatorCarrier.m */,
+				460127531B63B44500BD756E /* UINavigationController+Private.h */,
+				4604A1661B63AC5700E99DE0 /* UINavigationController+CHXSwipeBackPopAnimator.h */,
+				4604A1671B63AC5700E99DE0 /* UINavigationController+CHXSwipeBackPopAnimator.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -265,6 +274,7 @@
 				4644A0801AE2910700D3452F /* PageOneViewController.m in Sources */,
 				4644A0A41AE2922600D3452F /* CHXPopAnimatorCarrier.m in Sources */,
 				4644A0A71AE29CF100D3452F /* NavigationController.m in Sources */,
+				4604A1681B63AC5700E99DE0 /* UINavigationController+CHXSwipeBackPopAnimator.m in Sources */,
 				4644A07D1AE2910700D3452F /* AppDelegate.m in Sources */,
 				4644A07A1AE2910700D3452F /* main.m in Sources */,
 				4644EF501B14B79F008378D7 /* PageTwoViewController.m in Sources */,

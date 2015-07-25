@@ -26,6 +26,7 @@
 
 #import "CHXPopAnimatorCarrier.h"
 #import "CHXPopAnimator.h"
+#import "UINavigationController+Private.h"
 
 @interface CHXPopAnimatorCarrier () <UIGestureRecognizerDelegate>
 @property (nonatomic, weak) UINavigationController *navigationController;
@@ -47,6 +48,7 @@
         NSParameterAssert(navigationController);
         
         _navigationController = navigationController;
+        _navigationController.interactivePopGestureRecognizerEnable_ = YES;
         [self commitInit];
     }
     
@@ -58,22 +60,43 @@
     _panGestureRecognizer.maximumNumberOfTouches = 1;
     _panGestureRecognizer.delegate = self;
     [_navigationController.view addGestureRecognizer:_panGestureRecognizer];
-    
+
     _popAnimator = [CHXPopAnimator new];
 }
 
 - (void)handlePan:(UIPanGestureRecognizer *)sender {
+    BOOL systemPopBehavior = NO;
+    if (!_navigationController.interactivePopGestureRecognizerEnable_) {
+        if (!_navigationController.preventScreenEdge_) {
+            return;
+        }
+        
+        systemPopBehavior = YES;
+    }
+
     UIView *navigationView = self.navigationController.view;
-    
     UIGestureRecognizerState state = sender.state;
     if (state == UIGestureRecognizerStateBegan) {
         CGFloat velocityX = [sender velocityInView:navigationView].x;
         if ([self.navigationController.viewControllers count] > 1 && !self.animating && velocityX > 0) {
-            CGFloat velocityY = [sender velocityInView:navigationView].y;
-            CGPoint location = [sender locationInView:navigationView];
-            if (0 == velocityY || location.x <= 40) {
+            void(^runPopAnimation)(void) = ^{
                 self.interactiveTransition = [UIPercentDrivenInteractiveTransition new];
                 [self.navigationController popViewControllerAnimated:YES];
+            };
+            
+            CGPoint location = [sender locationInView:navigationView];
+            if (systemPopBehavior) {
+                /// system behavior
+                if (location.x <= 44) {
+                    runPopAnimation();
+                }
+                return;
+            }
+            
+            /// normal custom pop animation behavior
+            CGFloat velocityY = [sender velocityInView:navigationView].y;
+            if (0 == velocityY || location.x <= 44) {
+                runPopAnimation();
             }
         }
     } else if (state == UIGestureRecognizerStateChanged) {
